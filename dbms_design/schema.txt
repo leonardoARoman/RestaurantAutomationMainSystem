@@ -1,0 +1,7 @@
+create database AutomatedRestaurant;
+
+create table menu(item varchar(15),section varchar(15), price float, primary key(item));
+
+create table reservation(name varchar(15), lastname varchar(15), phone varchar(15), time date, primary key(phone));
+
+
