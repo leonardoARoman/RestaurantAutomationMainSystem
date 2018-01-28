@@ -6,10 +6,13 @@ import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.MySqlManager;
 import model.TableState;
@@ -43,7 +46,8 @@ public class FloorController {
 	private TextField name,lastName,phone,time;
 	@FXML
 	private ListView<String> specialslList, fastfoodList, desertList, drinkList;
-
+	@FXML
+	private AnchorPane mainPain;
 	/**
 	 * 
 	 * @param mainStage
@@ -136,6 +140,8 @@ public class FloorController {
 			table1.setImage(TableState.cleanTable(url+"t1.png"));
 			floor1_table_1.setImage(TableState.cleanTable(url+"t1.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -161,6 +167,8 @@ public class FloorController {
 			table2.setImage(TableState.cleanTable(url+"t2.png"));
 			floor1_table_2.setImage(TableState.cleanTable(url+"t2.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -186,6 +194,8 @@ public class FloorController {
 			table3.setImage(TableState.cleanTable(url+"t3.png"));
 			floor2_table_1.setImage(TableState.cleanTable(url+"t3.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -211,6 +221,8 @@ public class FloorController {
 			table4.setImage(TableState.cleanTable(url+"t4.png"));
 			floor2_table_2.setImage(TableState.cleanTable(url+"t4.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -236,6 +248,8 @@ public class FloorController {
 			table5.setImage(TableState.cleanTable(url+"t5.png"));
 			floor1_table_3.setImage(TableState.cleanTable(url+"t5.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -261,6 +275,8 @@ public class FloorController {
 			table6.setImage(TableState.cleanTable(url+"t6.png"));
 			floor1_table_4.setImage(TableState.cleanTable(url+"t6.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -286,6 +302,8 @@ public class FloorController {
 			table7.setImage(TableState.cleanTable(url+"t7.png"));
 			floor2_table_3.setImage(TableState.cleanTable(url+"t7.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -311,6 +329,8 @@ public class FloorController {
 			table8.setImage(TableState.cleanTable(url+"t8.png"));
 			floor2_table_4.setImage(TableState.cleanTable(url+"t8.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -336,6 +356,8 @@ public class FloorController {
 			table9.setImage(TableState.cleanTable(url+"t9.png"));
 			floor1_table_5.setImage(TableState.cleanTable(url+"t9.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -361,6 +383,8 @@ public class FloorController {
 			table10.setImage(TableState.cleanTable(url+"t10.png"));
 			floor1_table_6.setImage(TableState.cleanTable(url+"t10.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -386,6 +410,8 @@ public class FloorController {
 			table11.setImage(TableState.cleanTable(url+"t11.png"));
 			floor2_table_5.setImage(TableState.cleanTable(url+"t11.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -411,6 +437,8 @@ public class FloorController {
 			table12.setImage(TableState.cleanTable(url+"t12.png"));
 			floor2_table_6.setImage(TableState.cleanTable(url+"t12.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -436,6 +464,8 @@ public class FloorController {
 			table20.setImage(TableState.cleanTable(url+"t20.png"));
 			floor3_table_1.setImage(TableState.cleanTable(url+"t20.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -461,6 +491,8 @@ public class FloorController {
 			table21.setImage(TableState.cleanTable(url+"t21.png"));
 			floor3_table_2.setImage(TableState.cleanTable(url+"t21.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -486,6 +518,8 @@ public class FloorController {
 			table22.setImage(TableState.cleanTable(url+"t22.png"));
 			floor4_table_1.setImage(TableState.cleanTable(url+"t22.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -511,6 +545,8 @@ public class FloorController {
 			table23.setImage(TableState.cleanTable(url+"t23.png"));
 			floor4_table_2.setImage(TableState.cleanTable(url+"t23.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -536,6 +572,8 @@ public class FloorController {
 			table24.setImage(TableState.cleanTable(url+"t24.png"));
 			floor3_table_3.setImage(TableState.cleanTable(url+"t24.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -561,6 +599,8 @@ public class FloorController {
 			table25.setImage(TableState.cleanTable(url+"t25.png"));
 			floor3_table_4.setImage(TableState.cleanTable(url+"t25.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -586,6 +626,8 @@ public class FloorController {
 			table26.setImage(TableState.cleanTable(url+"t26.png"));
 			floor4_table_3.setImage(TableState.cleanTable(url+"t26.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -611,6 +653,8 @@ public class FloorController {
 			table27.setImage(TableState.cleanTable(url+"t27.png"));
 			floor4_table_4.setImage(TableState.cleanTable(url+"t27.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -636,6 +680,8 @@ public class FloorController {
 			table28.setImage(TableState.cleanTable(url+"t28.png"));
 			floor3_table_5.setImage(TableState.cleanTable(url+"t28.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -661,6 +707,8 @@ public class FloorController {
 			table29.setImage(TableState.cleanTable(url+"t29.png"));
 			floor3_table_6.setImage(TableState.cleanTable(url+"t29.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -686,6 +734,8 @@ public class FloorController {
 			table30.setImage(TableState.cleanTable(url+"t30.png"));
 			floor4_table_5.setImage(TableState.cleanTable(url+"t30.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
@@ -711,9 +761,23 @@ public class FloorController {
 			table31.setImage(TableState.cleanTable(url+"t31.png"));
 			floor4_table_6.setImage(TableState.cleanTable(url+"t31.png"));
 			return;
+		} else if(action == 4) {
+			viewOrder();
 		}
 	}
 
+	private void viewOrder() throws IOException {
+		// For management purposes.
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/vieworder.fxml"));
+		mainPain = (AnchorPane)loader.load();
+		ViewOrderController viewOrderController = 
+				loader.getController();
+		viewOrderController.start(stage);
+		Scene scene = new Scene(mainPain,600,600);
+		stage.setScene(scene);
+		stage.show();
+	}
 	/**
 	 * 
 	 * @return
@@ -727,9 +791,10 @@ public class FloorController {
 		ButtonType buttonTypeOne = new ButtonType("Seat");
 		ButtonType buttonTypeTwo = new ButtonType("Dirty");
 		ButtonType buttonTypeThree = new ButtonType("Ready");
+		ButtonType buttonTypeFour = new ButtonType("Order");
 		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 
-		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeFour, buttonTypeCancel);
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeOne){
@@ -741,6 +806,9 @@ public class FloorController {
 		} else if (result.get() == buttonTypeThree) {
 			// ... user chose "Three"
 			return 3;
+		} else if (result.get() == buttonTypeFour) {
+			// ... user chose "Three"
+			return 4;
 		} 
 		return 0;
 	}
