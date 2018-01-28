@@ -7,6 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author leonardoroman
+ *
+ */
 public class HostpanelController {
 
 	@FXML
@@ -18,6 +23,11 @@ public class HostpanelController {
 		stage = mainStage;
 	}
 
+	/**
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public void kitchenPanel() throws IOException, ClassNotFoundException{
 
 		FXMLLoader loader = new FXMLLoader();
@@ -33,6 +43,11 @@ public class HostpanelController {
 	}
 
 
+	/**
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public void floorPanel() throws IOException, ClassNotFoundException {
 		
 		FXMLLoader loader = new FXMLLoader();

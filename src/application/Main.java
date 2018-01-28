@@ -10,8 +10,13 @@ import model.MySqlManager;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
-
+/**
+ * 
+ * @author leonardoroman
+ *
+ */
 public class Main extends Application {
+
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		
@@ -29,6 +34,10 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 	
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

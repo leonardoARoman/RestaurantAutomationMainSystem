@@ -3,10 +3,16 @@ package model;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author leonardoroman
+ *
+ */
 public class MySqlManager {
 	// Instance variable to access mysql database
 	private String url = "jdbc:mysql://localhost:3306/AutomatedRestaurant";
@@ -17,6 +23,10 @@ public class MySqlManager {
 	
 	private MySqlManager() {}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static MySqlManager getInstance() {
 		if(mysql == null)
 			mysql = new MySqlManager();
@@ -24,6 +34,10 @@ public class MySqlManager {
 		return mysql;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<String> getFastFood() {
 		ArrayList<String> fastfood = new ArrayList<String>();
 		//Accessing DBMS
@@ -41,6 +55,10 @@ public class MySqlManager {
 		return fastfood;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<String> getSpecials() {
 		ArrayList<String> specials = new ArrayList<String>();
 		//Accessing DBMS
@@ -58,6 +76,10 @@ public class MySqlManager {
 		return specials;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<String> getDesert() {
 		ArrayList<String> deserts = new ArrayList<String>();
 		//Accessing DBMS
@@ -75,6 +97,10 @@ public class MySqlManager {
 		return deserts;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<String> getDrinks() {
 		ArrayList<String> drinks = new ArrayList<String>();
 		//Accessing DBMS
@@ -92,12 +118,35 @@ public class MySqlManager {
 		return drinks;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<String> getRervations(){
 		// make changes:
 		return null;
 	}
 	
-	public void makeReservation(String name, String lastname, String phone, Date time) {
-		// Implement here:
+	/**
+	 * 
+	 * @param name
+	 * @param lastname
+	 * @param phone
+	 */
+	public void makeReservation(String name, String lastname, String phone) {
+	
+		try {
+			Class.forName(myDriver);
+			Connection connection = DriverManager.getConnection(url, u_name, pass);
+			PreparedStatement st = connection.prepareStatement("insert into reservation(name,lastname,phone)"
+					+ " values (?,?,?)");
+					st.setString(1,name);
+					st.setString(2 ,lastname);
+					st.setString(3,phone);
+					//st.setNString(4 ,time);
+					st.executeUpdate();
+		}catch(Exception e) {
+			System.out.println(e.getMessage()+": Error!");
+		}	
 	}
 }

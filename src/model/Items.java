@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * 
+ * @author leonardoroman
+ *
+ */
 public class Items {
 	String item;
 	float price;
