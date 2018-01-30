@@ -49,7 +49,7 @@ public class HostpanelController {
 	 * @throws ClassNotFoundException
 	 */
 	public void floorPanel() throws IOException, ClassNotFoundException {
-		
+
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/floor.fxml"));
 		mainPain = (AnchorPane)loader.load();
@@ -59,5 +59,41 @@ public class HostpanelController {
 		Scene scene = new Scene(mainPain,600,600);
 		stage.setScene(scene);
 		stage.show();
+	}
+
+	/**
+	 * 
+	 * @throws IOException
+	 */
+	public void clockinout() throws IOException {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/clockintime.fxml"));
+		mainPain = (AnchorPane)loader.load();
+		ClockInTimeController clockInTimeController = 
+				loader.getController();
+		clockInTimeController.start(stage);
+		Scene scene = new Scene(mainPain,600,600);
+		stage.setScene(scene);
+		stage.show();
+
+	}
+
+	/**
+	 * 
+	 * @throws IOException
+	 */
+	public void adminPanel() throws IOException {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/admin.fxml"));
+		mainPain = (AnchorPane)loader.load();
+		AdminController adminController = 
+				loader.getController();
+		adminController.start(stage);
+		Scene scene = new Scene(mainPain,600,600);
+		stage.setScene(scene);
+		stage.show();
+
 	}
 }
