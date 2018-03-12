@@ -1,14 +1,16 @@
 package application;
 	
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import controller.HostpanelController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import model.MySqlManager;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+
 
 /**
  * 
@@ -19,7 +21,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
+	    
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/hostpanel.fxml"));
 		AnchorPane root = (AnchorPane)loader.load();
@@ -37,8 +39,11 @@ public class Main extends Application {
 	/**
 	 * 
 	 * @param args
+	 * @throws UnknownHostException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
+		// Get Host IP address for reference.
+		System.out.println("Host IP address: "+InetAddress.getLocalHost().getHostAddress());
 		launch(args);
 	}
 }

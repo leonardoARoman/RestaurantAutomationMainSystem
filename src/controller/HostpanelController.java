@@ -66,7 +66,7 @@ public class HostpanelController {
 	 * @throws IOException
 	 */
 	public void clockinout() throws IOException {
-
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/clockintime.fxml"));
 		mainPain = (AnchorPane)loader.load();
