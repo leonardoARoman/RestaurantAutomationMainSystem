@@ -19,6 +19,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.DialogBoxHelper;
 import model.MySqlManager;
 import model.TableState;
 
@@ -39,10 +40,6 @@ public class FloorController {
 	private MySqlManager mysql;
 	private static Stage stage;
 	private ObservableList<String> specialsObsList,ffObsList,desertObsList,drinksObsList;
-	private static ServerSocket ss;
-	private static Socket socket;
-	private static DataInputStream dis;
-	private static DataOutputStream dos;
 
 	@FXML
 	private ImageView table1,table2,table3,table4,table5,table6,table7,table8,table9,table10,table11,table12;
@@ -76,7 +73,7 @@ public class FloorController {
 		ffObsList = FXCollections.observableArrayList(mysql.getFastFood());
 		showFastFood();
 
-		// New thread for listening to incoming msgs.
+		// New thread for listening to client incoming msgs.
 		Thread t1 = new Thread(()->createServer());
 		t1.start();
 
@@ -116,25 +113,22 @@ public class FloorController {
 	public void addReservation() {
 
 		if(name.getText().isEmpty() || lastName.getText().isEmpty() || phone.getText().isEmpty()) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error Dialog");
-			alert.setHeaderText("Look, an Error Dialog");
-			alert.setContentText("Ooops, one or more fields are empty!");
-			alert.showAndWait();
+
+			DialogBoxHelper.emptyFieldException();
 			return;
+
 		}
+
 		else {
+
 			mysql.makeReservation(name.getText(), lastName.getText(), phone.getText());
 			// Reset all TextFields back to blank
 			name.setText("");
 			lastName.setText("");
 			phone.setText("");	
 
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Information Dialog");
-			alert.setHeaderText(null);
-			alert.setContentText("Reservation saved!");
-			alert.showAndWait();
+			DialogBoxHelper.succesfulTransactionMessage();
+
 		}
 	}
 
@@ -151,7 +145,7 @@ public class FloorController {
 	 */
 	public void table1ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -178,7 +172,7 @@ public class FloorController {
 	 */
 	public void table2ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -205,7 +199,7 @@ public class FloorController {
 	 */
 	public void table3ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -232,7 +226,7 @@ public class FloorController {
 	 */
 	public void table4ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -259,7 +253,7 @@ public class FloorController {
 	 */
 	public void table5ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -286,7 +280,7 @@ public class FloorController {
 	 */
 	public void table6ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -313,7 +307,7 @@ public class FloorController {
 	 */
 	public void table7ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -340,7 +334,7 @@ public class FloorController {
 	 */
 	public void table8ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -367,7 +361,7 @@ public class FloorController {
 	 */
 	public void table9ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -394,7 +388,7 @@ public class FloorController {
 	 */
 	public void table10ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -421,7 +415,7 @@ public class FloorController {
 	 */
 	public void table11ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -448,7 +442,7 @@ public class FloorController {
 	 */
 	public void table12ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -475,7 +469,7 @@ public class FloorController {
 	 */
 	public void table20ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -502,7 +496,7 @@ public class FloorController {
 	 */
 	public void table21ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -529,7 +523,7 @@ public class FloorController {
 	 */
 	public void table22ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -556,7 +550,7 @@ public class FloorController {
 	 */
 	public void table23ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -583,7 +577,7 @@ public class FloorController {
 	 */
 	public void table24ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -610,7 +604,7 @@ public class FloorController {
 	 */
 	public void table25ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -637,7 +631,7 @@ public class FloorController {
 	 */
 	public void table26ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -664,7 +658,7 @@ public class FloorController {
 	 */
 	public void table27ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -691,7 +685,7 @@ public class FloorController {
 	 */
 	public void table28ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -718,7 +712,7 @@ public class FloorController {
 	 */
 	public void table29ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -745,7 +739,7 @@ public class FloorController {
 	 */
 	public void table30ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -772,7 +766,7 @@ public class FloorController {
 	 */
 	public void table31ImageViewListener() throws IOException {
 
-		int action = tableAction();
+		int action = DialogBoxHelper.tableAction();
 
 		if(action == 0) {
 			return;
@@ -809,42 +803,10 @@ public class FloorController {
 		stage.setScene(scene);
 		stage.show();
 	}
+
 	/**
-	 * 
-	 * @return
+	 * Helper function to create server connection
 	 */
-	private int tableAction() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog with Custom Actions");
-		alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
-		alert.setContentText("Choose your option.");
-
-		ButtonType buttonTypeOne = new ButtonType("Seat");
-		ButtonType buttonTypeTwo = new ButtonType("Dirty");
-		ButtonType buttonTypeThree = new ButtonType("Ready");
-		ButtonType buttonTypeFour = new ButtonType("Order");
-		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-
-		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeFour, buttonTypeCancel);
-
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == buttonTypeOne){
-			// ... user chose "One"
-			return 1;
-		} else if (result.get() == buttonTypeTwo) {
-			// ... user chose "Two"
-			return 2;
-		} else if (result.get() == buttonTypeThree) {
-			// ... user chose "Three"
-			return 3;
-		} else if (result.get() == buttonTypeFour) {
-			// ... user chose "Three"
-			return 4;
-		} 
-		return 0;
-	}
-
-	// Helper function to create server connection
 	private void createServer() {
 		ServerSocket serverSocket=null;
 		Socket clientSocket = null;
@@ -879,14 +841,19 @@ public class FloorController {
 			} catch (IOException e) {
 				//log exception and go on to next request.
 			}
-
 		}
 	}
 
+	/**
+	 * 
+	 * @param clientSocket
+	 * @return
+	 * @throws IOException
+	 */
 	private ArrayList<String> processClientRequest(Socket clientSocket) throws IOException {
-		
+
 		ArrayList<String> str = new ArrayList<String>();
-		
+
 		System.out.println("[TCP Server] processing the incoming request");
 		try {
 			PrintStream printStream = new PrintStream(clientSocket.getOutputStream());
@@ -913,6 +880,12 @@ public class FloorController {
 	}
 
 	// Helper function to listen to table updates from mobile application
+	/**
+	 * 
+	 * @param tableNumber
+	 * @param action
+	 * @throws IOException
+	 */
 	private void setTableState(int tableNumber, int action) throws IOException{
 		switch(tableNumber) {
 		case 1:{
@@ -1326,6 +1299,20 @@ public class FloorController {
 			if(action < 0 || action > 3)
 				return;
 		}
+	}
 
+	public void exit() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/hostpanel.fxml"));
+		AnchorPane root = (AnchorPane)loader.load();
+
+
+		HostpanelController userController = 
+				loader.getController();
+		userController.start(stage);
+
+		Scene scene = new Scene(root,600,600);
+		stage.setScene(scene);
+		stage.show();
 	}
 }

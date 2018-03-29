@@ -149,4 +149,23 @@ public class MySqlManager {
 			System.out.println(e.getMessage()+": Error!");
 		}	
 	}
+	
+	
+	public String getUserBiometricPrint(String empID) {
+		System.out.println("Hello from DBMS helper: "+empID);
+		String value = "";
+		try {
+			Class.forName(myDriver);
+			Connection connection = DriverManager.getConnection(url, u_name, pass);
+			Statement stm = connection.createStatement();
+			ResultSet rs = stm.executeQuery("select hashedImage from fingerPrint where empID = '"+empID+"'");
+			while(rs.next()) {
+				//value = Integer.toString(rs.getInt("empID"));
+				value = rs.getString("hashedImage");
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage()+": Error!");
+		}	
+		return value;
+	}
 }

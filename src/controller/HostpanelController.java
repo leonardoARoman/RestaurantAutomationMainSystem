@@ -18,9 +18,10 @@ public class HostpanelController {
 	private AnchorPane mainPain;
 
 	private static Stage stage;
-
+	private  FXMLLoader loader;
 	public void start(Stage mainStage) {
 		stage = mainStage;
+		loader = new FXMLLoader();
 	}
 
 	/**
@@ -30,7 +31,6 @@ public class HostpanelController {
 	 */
 	public void kitchenPanel() throws IOException, ClassNotFoundException{
 
-		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/kitchenpanel.fxml"));
 		mainPain = (AnchorPane)loader.load();
 		KitchenController kitchencontroller = 
@@ -50,7 +50,7 @@ public class HostpanelController {
 	 */
 	public void floorPanel() throws IOException, ClassNotFoundException {
 
-		FXMLLoader loader = new FXMLLoader();
+		//FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/floor.fxml"));
 		mainPain = (AnchorPane)loader.load();
 		FloorController floorcontroller = 
@@ -67,7 +67,7 @@ public class HostpanelController {
 	 */
 	public void clockinout() throws IOException {
 		
-		FXMLLoader loader = new FXMLLoader();
+		//FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/clockintime.fxml"));
 		mainPain = (AnchorPane)loader.load();
 		ClockInTimeController clockInTimeController = 
@@ -85,7 +85,7 @@ public class HostpanelController {
 	 */
 	public void adminPanel() throws IOException {
 
-		FXMLLoader loader = new FXMLLoader();
+		//FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/admin.fxml"));
 		mainPain = (AnchorPane)loader.load();
 		AdminController adminController = 
@@ -97,3 +97,8 @@ public class HostpanelController {
 
 	}
 }
+/*
+public static Stage getStage() {
+
+}
+*/

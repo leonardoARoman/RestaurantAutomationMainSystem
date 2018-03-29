@@ -24,14 +24,16 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 public class ViewOrderController {
-	
+
+	private FXMLLoader loader;
 	private static Stage stage;
 
 	@FXML
 	private AnchorPane mainPain;
-	
+
 	public void start(Stage mainStage) {
 		stage = mainStage;
+		//loader = HostpanelController.getLoader();
 	}
 
 	public void editOrder() throws IOException {
@@ -39,10 +41,7 @@ public class ViewOrderController {
 		// Create the custom dialog.
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
 		dialog.setTitle("Login Dialog");
-		dialog.setHeaderText("Look, a Custom Login Dialog");
-
-		// Set the icon (must be included in the project).
-		//dialog.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
+		dialog.setHeaderText("Enter credentials");
 
 		// Set the button types.
 		ButtonType loginButtonType = new ButtonType("Login", ButtonData.OK_DONE);
@@ -70,7 +69,7 @@ public class ViewOrderController {
 
 		// Do some validation (using the Java 8 lambda syntax).
 		username.textProperty().addListener((observable, oldValue, newValue) -> {
-		    ((javafx.scene.Node) loginButton).setDisable(newValue.trim().isEmpty());
+			((javafx.scene.Node) loginButton).setDisable(newValue.trim().isEmpty());
 		});
 
 		dialog.getDialogPane().setContent(grid);
@@ -80,10 +79,10 @@ public class ViewOrderController {
 
 		// Convert the result to a username-password-pair when the login button is clicked.
 		dialog.setResultConverter(dialogButton -> {
-		    if (dialogButton == loginButtonType) {
-		        return new Pair<>(username.getText(), password.getText());
-		    }
-		    return null;
+			if (dialogButton == loginButtonType) {
+				return new Pair<>(username.getText(), password.getText());
+			}
+			return null;
 		});
 
 		Optional<Pair<String, String>> result = dialog.showAndWait();
@@ -103,7 +102,19 @@ public class ViewOrderController {
 			Scene scene = new Scene(mainPain,600,600);
 			stage.setScene(scene);
 			stage.show();
-		    System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
+			System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
 		});
+	}
+
+	public void goBack() throws IOException {
+		loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/floor.fxml"));
+		mainPain = (AnchorPane)loader.load();
+		FloorController floorcontroller = 
+				loader.getController();
+		floorcontroller.start(stage);
+		Scene scene = new Scene(mainPain,600,600);
+		stage.setScene(scene);
+		stage.show();
 	}
 }

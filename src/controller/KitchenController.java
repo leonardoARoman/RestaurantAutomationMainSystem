@@ -1,8 +1,13 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.MySqlManager;
 
@@ -50,5 +55,20 @@ public class KitchenController {
 
 	public void register6() {
 
+	}
+
+	public void exit() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/hostpanel.fxml"));
+		AnchorPane root = (AnchorPane)loader.load();
+
+
+		HostpanelController userController = 
+				loader.getController();
+		userController.start(stage);
+
+		Scene scene = new Scene(root,600,600);
+		stage.setScene(scene);
+		stage.show();
 	}
 }
