@@ -1,6 +1,6 @@
 # RestaurantAutomationMainSystem
 Software engineer project. This is the main system for management purposes such as seating guests, editing exinting orders,
-managing reservation, floor state, employees clock in/out system and more. 
+managing reservation, floor state, employees clock in/out system and more. This application was developed using javaFx and SceneBuilder. IMPORTANT: you need java7 or higher in order to run the code properly. Some of the functionality used in this application is functional programing using labda expression. Hence JDK 7 or higher is requiered.
 
 # Main System 
 The main system devides and conqueres targetting three different type of audience: Mobile app for waiters, Webb app for customer's queries and Desktop app for all restaurant personal.
