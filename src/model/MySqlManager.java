@@ -20,9 +20,9 @@ public class MySqlManager {
 	private String u_name = "root";
 	private String pass = "LEoking1987";
 	private static MySqlManager mysql = null;
-	
+
 	private MySqlManager() {}
-	
+
 	/**
 	 * 
 	 * @return
@@ -30,10 +30,10 @@ public class MySqlManager {
 	public static MySqlManager getInstance() {
 		if(mysql == null)
 			mysql = new MySqlManager();
-		
+
 		return mysql;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -54,7 +54,7 @@ public class MySqlManager {
 		}	
 		return fastfood;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -75,7 +75,7 @@ public class MySqlManager {
 		}	
 		return specials;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -96,7 +96,7 @@ public class MySqlManager {
 		}	
 		return deserts;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -117,7 +117,7 @@ public class MySqlManager {
 		}	
 		return drinks;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -126,7 +126,7 @@ public class MySqlManager {
 		// make changes:
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 * @param name
@@ -134,25 +134,24 @@ public class MySqlManager {
 	 * @param phone
 	 */
 	public void makeReservation(String name, String lastname, String phone) {
-	
+
 		try {
 			Class.forName(myDriver);
 			Connection connection = DriverManager.getConnection(url, u_name, pass);
 			PreparedStatement st = connection.prepareStatement("insert into reservation(name,lastname,phone)"
 					+ " values (?,?,?)");
-					st.setString(1,name);
-					st.setString(2 ,lastname);
-					st.setString(3,phone);
-					//st.setNString(4 ,time);
-					st.executeUpdate();
+			st.setString(1,name);
+			st.setString(2 ,lastname);
+			st.setString(3,phone);
+			//st.setNString(4 ,time);
+			st.executeUpdate();
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
 		}	
 	}
-	
-	
+
+
 	public String getUserBiometricPrint(String empID) {
-		System.out.println("Hello from DBMS helper: "+empID);
 		String value = "";
 		try {
 			Class.forName(myDriver);
@@ -160,12 +159,33 @@ public class MySqlManager {
 			Statement stm = connection.createStatement();
 			ResultSet rs = stm.executeQuery("select hashedImage from fingerPrint where empID = '"+empID+"'");
 			while(rs.next()) {
-				//value = Integer.toString(rs.getInt("empID"));
+				// get fingerprint image for matching
 				value = rs.getString("hashedImage");
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
 		}	
 		return value;
+	}
+
+	public ArrayList<String> getCredentials(String empID){
+		
+		ArrayList<String> credentials = new ArrayList<String>();
+		//Accessing DBMS
+		try {
+			Class.forName(myDriver);
+			Connection connection = DriverManager.getConnection(url, u_name, pass);
+			Statement stm = connection.createStatement();
+			ResultSet rs = stm.executeQuery("select * from employee where empID = '"+empID+"'");
+			while(rs.next()) {
+				credentials.add(rs.getString("lname")+", "+rs.getString("name")); // cred[0]
+				credentials.add(rs.getString("job")); // cred[1]
+				credentials.add(rs.getString("empID")); // cred[2]
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage()+": Error!");
+		}
+		
+		return credentials;
 	}
 }
