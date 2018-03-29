@@ -18,7 +18,7 @@ public class MySqlManager {
 	private String url = "jdbc:mysql://localhost:3306/AutomatedRestaurant";
 	private String myDriver = "org.gjt.mm.mysql.Driver";
 	private String u_name = "root";
-	private String pass = "LEoking1987";
+	private String pass = "XXXX";
 	private static MySqlManager mysql = null;
 
 	private MySqlManager() {}
