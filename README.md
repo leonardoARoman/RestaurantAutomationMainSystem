@@ -2,6 +2,9 @@
 Software engineer project. This is the main system for management purposes such as seating guests, editing exinting orders,
 managing reservation, floor state, employees clock in/out system and more. This application was developed using javaFx and SceneBuilder. IMPORTANT: you need java7 or higher in order to run the code properly. Some of the functionality used in this application is functional programing using labda expression. Hence JDK 7 or higher is requiered.
 
+# To Run Application
+To run this application you can download and upload folder directly to ecplise or any IDE of your chice. Run the main file, Main.java, do not run the CMain.java file, this file is not doing anything for now. Once you run the main, you will be prompted to the main interface with 4 options. This four option are the subsystems. The floor subsystem, will take you to a layout with restaurant tables. In order to seat people in a table click the desire table and choose the option from the popup dialog box. Another important feature is the clock system. Very simple to follow, however the input must be chosen from the image libraries. This subsystem is not 100% finish yet. 
+
 # Main System 
 The main system devides and conqueres targetting three different type of audience: Mobile app for waiters, Webb app for customer's queries and Desktop app for all restaurant personal.
 
