@@ -3,7 +3,11 @@ package unitTesting;
 import java.util.ArrayList;
 
 import model.MySqlManager;
-
+/**
+ * 
+ * @author leonardoroman
+ *
+ */
 public class UnitTest {
 	
 	public static void main(String[] args) {
@@ -27,13 +31,18 @@ public class UnitTest {
 		
 	}
 	
+	/**
+	 * 
+	 * @param items
+	 * @param expectedItems
+	 */
 	public static void test(ArrayList<String> items, String[] expectedItems) {
 		int size = items.size();
 		for(int i = 0; i < size; i++) {
 			if(items.get(i).equals(expectedItems[i])) {
 				System.out.println(items.get(i)+": Passed.");
 			}else {
-				System.out.println("Didn't passed!");	
+				System.out.println(items.get(i)+": Didn't passed!");	
 			}
 		}
 	}

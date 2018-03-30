@@ -15,10 +15,10 @@ import java.util.ArrayList;
  */
 public class MySqlManager {
 	// Instance variable to access mysql database
-	private String url = "jdbc:mysql://localhost:3306/AutomatedRestaurant";
+	private String url = "jdbc:mysql://restauto.c8kfv5fb1sng.us-east-2.rds.amazonaws.com:3306/restauto";
 	private String myDriver = "org.gjt.mm.mysql.Driver";
-	private String u_name = "root";
-	private String pass = "XXXX";
+	private String u_name = "restauto";
+	private String pass = "restauto1";
 	private static MySqlManager mysql = null;
 
 	private MySqlManager() {}
@@ -45,9 +45,9 @@ public class MySqlManager {
 			Class.forName(myDriver);
 			Connection connection = DriverManager.getConnection(url, u_name, pass);
 			Statement stm = connection.createStatement();
-			ResultSet rs = stm.executeQuery("select item, price from menu where section = 'fast food' ");
+			ResultSet rs = stm.executeQuery("select name, price from menu where section = 'fastfood' ");
 			while(rs.next()) {
-				fastfood.add(rs.getString("item")+", "+rs.getString("price"));
+				fastfood.add(rs.getString("name")+", "+rs.getString("price"));
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
@@ -66,9 +66,9 @@ public class MySqlManager {
 			Class.forName(myDriver);
 			Connection connection = DriverManager.getConnection(url, u_name, pass);
 			Statement stm = connection.createStatement();
-			ResultSet rs = stm.executeQuery("select item, price from menu where section = 'specials' ");
+			ResultSet rs = stm.executeQuery("select name, price from menu where section = 'specials' ");
 			while(rs.next()) {
-				specials.add(rs.getString("item")+", "+rs.getString("price"));
+				specials.add(rs.getString("name")+", "+rs.getString("price"));
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
@@ -87,9 +87,9 @@ public class MySqlManager {
 			Class.forName(myDriver);
 			Connection connection = DriverManager.getConnection(url, u_name, pass);
 			Statement stm = connection.createStatement();
-			ResultSet rs = stm.executeQuery("select item, price from menu where section = 'desert' ");
+			ResultSet rs = stm.executeQuery("select name, price from menu where section = 'dessert' ");
 			while(rs.next()) {
-				deserts.add(rs.getString("item")+", "+rs.getString("price"));
+				deserts.add(rs.getString("name")+", "+rs.getString("price"));
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
@@ -108,9 +108,9 @@ public class MySqlManager {
 			Class.forName(myDriver);
 			Connection connection = DriverManager.getConnection(url, u_name, pass);
 			Statement stm = connection.createStatement();
-			ResultSet rs = stm.executeQuery("select item, price from menu where section = 'drinks' ");
+			ResultSet rs = stm.executeQuery("select name, price from menu where section = 'drinks' ");
 			while(rs.next()) {
-				drinks.add(rs.getString("item")+", "+rs.getString("price"));
+				drinks.add(rs.getString("name")+", "+rs.getString("price"));
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage()+": Error!");
